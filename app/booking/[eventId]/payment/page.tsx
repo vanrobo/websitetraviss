@@ -18,7 +18,13 @@ const ticketPrices = {
   platinum: 15999,
 }
 
-export default function PaymentPage({ params }: { params: { eventId: string } }) {
+interface PaymentPageProps {
+  params: {
+    eventId: string;
+  };
+}
+
+export default function PaymentPage({ params }: PaymentPageProps) { 
   const router = useRouter()
   const searchParams = useSearchParams()
   const ticketType = searchParams.get("ticket") || "early-bird"

@@ -8,7 +8,13 @@ import { CheckCircle, Download, Share2, Calendar, MapPin, Clock } from "lucide-r
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 
-export default function ConfirmationPage({ params }: { params: { eventId: string } }) {
+interface ConfirmationPageProps {
+  params: {
+    eventId: string;
+  };
+}
+
+export default function ConfirmationPage({ params }: ConfirmationPageProps) {
   const searchParams = useSearchParams()
   const ticketType = searchParams.get("ticket") || "early-bird"
   const quantity = Number.parseInt(searchParams.get("quantity") || "1")

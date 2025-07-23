@@ -22,7 +22,7 @@ const ticketTypes = [
   { id: "vip", name: "VIP", price: 8999, description: "VIP Area + Premium Experience" },
 ]
 
-export default function SleekBookingPage({ params }: { params: { eventId: string } }) {
+export default function SleekBookingPage() {
   const router = useRouter()
   const [selectedTicket, setSelectedTicket] = useState("early-bird")
   const [quantity, setQuantity] = useState(2)
@@ -31,9 +31,11 @@ export default function SleekBookingPage({ params }: { params: { eventId: string
   const totalPrice = selectedTicketType ? selectedTicketType.price * quantity : 0
 
   const handleContinue = () => {
-    router.push(`/booking/${params.eventId}/seats?ticket=${selectedTicket}&quantity=${quantity}`)
+    // Define the event ID here because this is a static page
+    const eventId = "maha-rage-delhi-2025"; 
+  
+    router.push(`/booking/${eventId}/seats?ticket=${selectedTicket}&quantity=${quantity}`)
   }
-
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}

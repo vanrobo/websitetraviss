@@ -21,7 +21,13 @@ const ticketTypes = [
   { id: "vip", name: "VIP", price: 8999, available: 50, description: "VIP Area + Premium Experience" },
 ]
 
-export default function BookingPage({ params }: { params: { eventId: string } }) {
+interface ConfirmationPageProps {
+  params: {
+    eventId: string;
+  };
+}
+
+export default function ConfirmationPage({ params }: ConfirmationPageProps) {  
   const router = useRouter()
   const [selectedTicket, setSelectedTicket] = useState("")
   const [quantity, setQuantity] = useState(1)
