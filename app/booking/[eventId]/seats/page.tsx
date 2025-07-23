@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams, useParams } from "next/navigation"
 
 // Generate seat map data
 const generateSeatMap = () => {
@@ -43,16 +43,12 @@ const generateSeatMap = () => {
   return seatMap
 }
 
-// Define the props interface for the Seats page, including searchParams
-interface SeatsPageProps {
-  params: {
-    eventId: string;
-  };
-}
+
 
 // Rename the main function to SeatsPage and accept the props
-export default function SeatsPage({ params }: SeatsPageProps) {   
+export default function SeatsPage() {
   const router = useRouter()
+  const params = useParams()
   const searchParams = useSearchParams()
   const ticketType = searchParams.get("ticket")
   const quantity = Number.parseInt(searchParams.get("quantity") || "1")

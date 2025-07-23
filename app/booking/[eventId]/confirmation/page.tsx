@@ -6,15 +6,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Download, Share2, Calendar, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useParams } from "next/navigation"
 
-interface ConfirmationPageProps {
-  params: {
-    eventId: string;
-  };
-}
 
-export default function ConfirmationPage({ params }: ConfirmationPageProps) {
+
+
+export default function ConfirmationPage() {
   const searchParams = useSearchParams()
   const ticketType = searchParams.get("ticket") || "early-bird"
   const quantity = Number.parseInt(searchParams.get("quantity") || "1")

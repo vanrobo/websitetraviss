@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, CreditCard, Smartphone, Wallet } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams, useParams } from "next/navigation"
 
 const ticketPrices = {
   "early-bird": 2999,
@@ -18,14 +18,10 @@ const ticketPrices = {
   platinum: 15999,
 }
 
-interface PaymentPageProps {
-  params: {
-    eventId: string;
-  };
-}
 
-export default function PaymentPage({ params }: PaymentPageProps) { 
+export default function PaymentPage() {  
   const router = useRouter()
+  const params = useParams()
   const searchParams = useSearchParams()
   const ticketType = searchParams.get("ticket") || "early-bird"
   const quantity = Number.parseInt(searchParams.get("quantity") || "1")
