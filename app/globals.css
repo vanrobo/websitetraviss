@@ -35,8 +35,7 @@
   }
 
   .dark {
-    /* If you have a dark mode, its variables would go here, but your site is already dark. */
-    /* For now, we use the same variables as :root. */
+
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 0 0% 6%;
@@ -68,7 +67,6 @@
   }
 }
 
-/* Custom scrollbar - This is standard CSS and is safe to keep */
 ::-webkit-scrollbar {
   width: 8px;
 }
