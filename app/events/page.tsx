@@ -121,7 +121,7 @@ export default function EventsPage() {
                       </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Link href={`/booking/${event.id}`}>
+                      <Link href={`/booking/`}>
                         <Button
                           size="lg"
                           className="w-full bg-[#454ADE] hover:bg-[#454ADE]/80 text-white font-semibold"
