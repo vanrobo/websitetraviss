@@ -16,11 +16,11 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  output: "standalone",
-  trailingSlash: false,
   experimental: {
-    appDir: true,
+    serverComponentsExternalPackages: [],
   },
+  // Remove output: "standalone" for Vercel deployment
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
