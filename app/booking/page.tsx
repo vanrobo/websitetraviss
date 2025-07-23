@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Minus, Plus } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+// CORRECT: Only the useRouter hook is needed for this page.
 import { useRouter } from "next/navigation"
 
 const ticketTypes = [
@@ -21,13 +22,10 @@ const ticketTypes = [
   { id: "vip", name: "VIP", price: 8999, available: 50, description: "VIP Area + Premium Experience" },
 ]
 
-interface ConfirmationPageProps {
-  params: {
-    eventId: string;
-  };
-}
+// CORRECT: The incorrect props interface has been deleted.
 
-export default function ConfirmationPage({ params }: ConfirmationPageProps) {  
+// CORRECT: Renamed the component to BookingPage and removed the props.
+export default function BookingPage() {
   const router = useRouter()
   const [selectedTicket, setSelectedTicket] = useState("")
   const [quantity, setQuantity] = useState(1)
@@ -37,10 +35,12 @@ export default function ConfirmationPage({ params }: ConfirmationPageProps) {
   const totalPrice = selectedTicketType ? selectedTicketType.price * quantity : 0
 
   const handleContinue = () => {
+    // CORRECT: Hardcode the eventId because this is a static page.
+    const eventId = "maha-rage-delhi-2025";
     if (step === 1 && selectedTicket) {
       setStep(2)
     } else if (step === 2) {
-      router.push(`/booking/${params.eventId}/seats?ticket=${selectedTicket}&quantity=${quantity}`)
+      router.push(`/booking/${eventId}/seats?ticket=${selectedTicket}&quantity=${quantity}`)
     }
   }
 
