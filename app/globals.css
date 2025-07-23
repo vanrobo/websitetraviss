@@ -25,7 +25,7 @@
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 61%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 20%;
@@ -96,7 +96,7 @@
     background-position: 0% 50%;
   }
 }
-
+/*animation gradient works through ease*/
 .animate-gradient {
   background: linear-gradient(-45deg, #454ade, #59ffa0, #454ade, #59ffa0);
   background-size: 400% 400%;
